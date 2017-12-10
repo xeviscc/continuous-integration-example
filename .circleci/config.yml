@@ -17,11 +17,3 @@ jobs:
           command: |
             docker-compose up -d
             docker-compose run dockerizando python test.py
-      - deploy:
-          name: Push application Docker image
-          command: |
-            docker login -e $DOCKER_HUB_EMAIL -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PWD
-            docker tag dockerizando_dockerizando $DOCKER_HUB_USER_ID/dockerizando:$CIRCLE_SHA1
-            docker tag dockerizando_dockerizando $DOCKER_HUB_USER_ID/dockerizando:latest
-            docker push $DOCKER_HUB_USER_ID/dockerizando:$CIRCLE_SHA1
-            docker push $DOCKER_HUB_USER_ID/dockerizando:latest
