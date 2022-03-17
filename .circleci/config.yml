@@ -16,4 +16,4 @@ jobs:
           name: Run tests
           command: |
             docker-compose up -d
-            docker-compose run dockerizando python test.py
+            docker-compose run dockerizando test.py
